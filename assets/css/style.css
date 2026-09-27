@@ -322,7 +322,9 @@ p { margin: 0 0 1em; }
 .article-meta .sep { margin: 0 .45em; }
 .article-figure { margin: 0 auto; max-width: 1000px; padding: 0 var(--gutter); }
 .article-figure img { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; border-radius: var(--radius); }
+.article-figure--wide img { aspect-ratio: auto; }
 .article-body { padding: 36px 0 24px; }
+.article-body .prose li { font-family: var(--serif); font-size: 1.2rem; line-height: 1.6; margin: .35em 0; }
 .article-body .prose { max-width: 760px; }
 .article-body .prose p { font-family: var(--serif); font-size: 1.2rem; line-height: 1.7; color: #262b28; }
 .article-body .prose blockquote { font-size: 1.55rem; }

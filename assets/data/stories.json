@@ -15,6 +15,21 @@
       "image": "assets/images/story-saturday-morning.svg",
       "imageAlt": "Illustration of a cup of coffee in a waiting room",
       "readMinutes": 4
+    },
+    {
+      "slug": "twenty-years-and-the-next-twenty",
+      "title": "20 Years, and the Next 20",
+      "url": "stories/twenty-years-and-the-next-twenty.html",
+      "date": "2026-03-21",
+      "category": "think",
+      "tags": [
+        "Career",
+        "Reflections"
+      ],
+      "excerpt": "There were no celebrations or big milestones planned, just a quiet moment in Sedona, AZ, reflecting on the mountains around me.",
+      "image": "assets/images/sedona-red-rocks.jpg",
+      "imageAlt": "Red rock cliffs in Sedona, Arizona, glowing orange in the evening sun",
+      "readMinutes": 2
     }
   ]
 }
