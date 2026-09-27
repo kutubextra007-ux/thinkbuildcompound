@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /stories/_template.html
+
+Sitemap: https://thinkbuildcompound.com/sitemap.xml

@@ -1,0 +1,20 @@
+{
+  "_how_to_add": "Add one object per story. Newest first is not required; the site sorts by date. Set draft:true to hide.",
+  "stories": [
+    {
+      "slug": "a-saturday-morning-at-walmart",
+      "title": "A Saturday Morning at Walmart",
+      "url": "stories/a-saturday-morning-at-walmart.html",
+      "date": "2026-09-19",
+      "category": "think",
+      "tags": [
+        "Life",
+        "People"
+      ],
+      "excerpt": "Two strangers. An hour of conversation. And a reminder about what eventually matters.",
+      "image": "assets/images/story-saturday-morning.svg",
+      "imageAlt": "Illustration of a cup of coffee in a waiting room",
+      "readMinutes": 4
+    }
+  ]
+}
