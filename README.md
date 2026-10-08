@@ -49,6 +49,18 @@ sitemap.xml  robots.txt  .nojekyll
 5. **Add the URL** to `sitemap.xml`.
 6. **Commit and push.** GitHub Pages republishes in about a minute. The home page, Stories archive, filters and search pick it up automatically.
 
+## Long-form articles
+
+For longer pieces, a story page can opt in to extra reading features by adding `class="longform"` to `<body>`. See `stories/too-successful-to-start-over.html` as the reference:
+
+- **Reading progress bar:** add `<div class="reading-progress" aria-hidden="true"><span></span></div>` right after the skip link.
+- **Table of contents:** a `<nav class="toc">` with a `<details>` list of links to each `<h2 id="...">`, placed inside `.article-body` before the prose. It's a sticky sidebar on wide screens and a collapsible "In this article" box on smaller ones.
+- **Pull quotes:** `<blockquote class="pull">` for a line already in the text (don't repeat sentences).
+- **Discussion block:** `<section class="discussion">` with a `.discussion-q` question, a "Share on LinkedIn" link and a `data-copy-link` button.
+- **References:** `<section class="references">` at the end with an ordered list; external links use `target="_blank" rel="noopener"`.
+
+Give each long-form article its own 1200×630 PNG for `og:image` (LinkedIn previews don't render SVG).
+
 ## Local preview
 
 ```

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A path forks at dawn: a straight, lamp-lit road leads to a settled town, while a narrow trail winds up into open hills toward the rising sun. A small figure stands at the fork.">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3f5a84"/><stop offset=".42" stop-color="#9b86a6"/><stop offset=".78" stop-color="#eeb07c"/><stop offset="1" stop-color="#ffd8a0"/></linearGradient>
+<radialGradient id="sun" cx="1230" cy="392" r="560" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff6de"/><stop offset=".06" stop-color="#ffe0a0" stop-opacity=".95"/><stop offset=".3" stop-color="#ffbe7a" stop-opacity=".35"/><stop offset="1" stop-color="#ffbe7a" stop-opacity="0"/></radialGradient>
+<linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c49a8c"/><stop offset="1" stop-color="#6f5560"/></linearGradient>
+<linearGradient id="near" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7d6170"/><stop offset="1" stop-color="#3f3442"/></linearGradient>
+<linearGradient id="road" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6e2c6"/><stop offset="1" stop-color="#e8cfb3"/></linearGradient>
+<radialGradient id="lamp"><stop offset="0" stop-color="#ffe7b0" stop-opacity=".9"/><stop offset="1" stop-color="#ffe7b0" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#sky)"/>
+<rect width="1600" height="900" fill="url(#sun)"/>
+<circle cx="1230" cy="392" r="24" fill="#fff4d8"/>
+<g fill="#fff" opacity=".22"><rect x="180" y="150" width="300" height="10" rx="5"/><rect x="980" y="210" width="220" height="8" rx="4"/><rect x="1260" y="120" width="260" height="9" rx="4.5"/></g>
+<!-- far hills, open to the right -->
+<path d="M760,488 C900,420 1010,382 1130,418 C1210,442 1300,400 1400,392 C1490,386 1550,404 1600,414 V900 H760 Z" fill="#b98f9a" opacity=".75"/>
+<!-- settled skyline to the left -->
+<g fill="#5b6c8a" opacity=".9">
+<rect x="250" y="402" width="46" height="90"/><rect x="300" y="370" width="38" height="122"/><rect x="342" y="420" width="54" height="72"/><rect x="400" y="388" width="34" height="104"/><rect x="438" y="430" width="60" height="62"/><rect x="502" y="410" width="30" height="82"/><rect x="200" y="436" width="46" height="56"/>
+</g>
+<g fill="#ffd79a" opacity=".8">
+<rect x="258" y="414" width="6" height="6"/><rect x="276" y="430" width="6" height="6"/><rect x="310" y="384" width="6" height="6"/><rect x="322" y="404" width="6" height="6"/><rect x="310" y="440" width="6" height="6"/><rect x="352" y="434" width="6" height="6"/><rect x="376" y="450" width="6" height="6"/><rect x="408" y="400" width="6" height="6"/><rect x="420" y="428" width="6" height="6"/><rect x="450" y="444" width="6" height="6"/><rect x="476" y="458" width="6" height="6"/><rect x="510" y="424" width="6" height="6"/><rect x="214" y="452" width="6" height="6"/>
+</g>
+<!-- land -->
+<path d="M0,490 C300,478 520,486 800,492 C1050,498 1300,470 1600,478 V900 H0 Z" fill="url(#land)"/>
+<path d="M0,640 C260,600 520,612 760,646 C1020,684 1300,630 1600,612 V900 H0 Z" fill="url(#near)" opacity=".55"/>
+<!-- the straight, lit road to the town -->
+<path d="M786,648 L814,646 L404,492 L390,492 Z" fill="url(#road)" opacity=".95"/>
+<g>
+<circle cx="700" cy="607" r="22" fill="url(#lamp)"/><circle cx="700" cy="607" r="3" fill="#fff1cf"/>
+<circle cx="610" cy="573" r="18" fill="url(#lamp)"/><circle cx="610" cy="573" r="2.6" fill="#fff1cf"/>
+<circle cx="530" cy="543" r="15" fill="url(#lamp)"/><circle cx="530" cy="543" r="2.2" fill="#fff1cf"/>
+<circle cx="462" cy="518" r="12" fill="url(#lamp)"/><circle cx="462" cy="518" r="1.8" fill="#fff1cf"/>
+</g>
+<!-- the winding trail into the hills -->
+<path d="M812,648 C930,624 900,590 990,566 C1070,545 1040,512 1120,494 C1170,483 1180,470 1214,458" fill="none" stroke="#f6e2c6" stroke-width="9" stroke-linecap="round" opacity=".9"/>
+<path d="M1120,494 C1170,483 1180,470 1214,458" fill="none" stroke="#f6e2c6" stroke-width="4" stroke-linecap="round" opacity=".9"/>
+<!-- the shared path and the figure at the fork -->
+<path d="M690,900 L910,900 L816,648 L784,648 Z" fill="url(#road)"/>
+<g fill="#2f2c38">
+<circle cx="800" cy="618" r="6"/>
+<path d="M793,627 h14 l2,26 h-5 l-1,16 h-6 l-1,-16 h-5 z"/>
+</g>
+</svg>

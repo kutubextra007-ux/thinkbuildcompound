@@ -2,7 +2,9 @@
  * think.build.compound. — site script (vanilla JS, no dependencies)
  *
  * 1. Mobile navigation toggle.
- * 2. Renders story cards from assets/data/stories.json into any element
+ * 2. Long-form article extras on <body class="longform">: reading progress
+ *    bar, table of contents highlighting, copy-link button.
+ * 3. Renders story cards from assets/data/stories.json into any element
  *    with [data-stories]. Options (data attributes on that element):
  *      data-limit="4"       show at most N stories (newest first)
  *      data-archive         group by year and enable filters + search
@@ -25,7 +27,73 @@
     });
   }
 
-  // ---- 2. Stories ------------------------------------------------------------
+  // ---- 2. Long-form articles (<body class="longform">) ----------------------
+  // Reading progress bar, table of contents and the copy-link button.
+  if (document.body.classList.contains("longform")) {
+    var bar = document.querySelector(".reading-progress span");
+    var article = document.querySelector("article");
+    if (bar && article) {
+      var ticking = false;
+      var update = function () {
+        var top = article.getBoundingClientRect().top + window.scrollY;
+        var span = article.offsetHeight - window.innerHeight;
+        var p = span > 0 ? (window.scrollY - top) / span : 1;
+        bar.style.transform = "scaleX(" + Math.min(1, Math.max(0, p)) + ")";
+        ticking = false;
+      };
+      window.addEventListener("scroll", function () {
+        if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+      }, { passive: true });
+      window.addEventListener("resize", update);
+      update();
+    }
+
+    var toc = document.querySelector(".toc details");
+    if (toc) {
+      var wide = window.matchMedia("(min-width: 1240px)");
+      var syncToc = function () { if (wide.matches) toc.open = true; };
+      syncToc();
+      if (wide.addEventListener) wide.addEventListener("change", syncToc);
+      toc.addEventListener("click", function (e) {
+        if (e.target.closest("a") && !wide.matches) toc.open = false;
+      });
+      // Highlight the section being read: the last heading above 30% of the viewport.
+      var links = Array.prototype.slice.call(toc.querySelectorAll("a[href^='#']"));
+      var heads = links.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); });
+      var current = -1, pending = false;
+      var highlight = function () {
+        pending = false;
+        var idx = -1, line = window.innerHeight * 0.3;
+        heads.forEach(function (h, i) { if (h && h.getBoundingClientRect().top <= line) idx = i; });
+        if (idx === current) return;
+        if (current >= 0) links[current].removeAttribute("aria-current");
+        if (idx >= 0) links[idx].setAttribute("aria-current", "true");
+        current = idx;
+      };
+      window.addEventListener("scroll", function () {
+        if (!pending) { pending = true; window.requestAnimationFrame(highlight); }
+      }, { passive: true });
+      highlight();
+    }
+
+    document.querySelectorAll("[data-copy-link]").forEach(function (btn) {
+      var label = btn.querySelector("[data-copy-label]") || btn;
+      btn.addEventListener("click", function () {
+        var url = btn.getAttribute("data-copy-link");
+        var done = function () {
+          label.textContent = "Link copied";
+          setTimeout(function () { label.textContent = "Copy link"; }, 2000);
+        };
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(url).then(done, function () { window.prompt("Copy this link:", url); });
+        } else {
+          window.prompt("Copy this link:", url);
+        }
+      });
+    });
+  }
+
+  // ---- 3. Stories ------------------------------------------------------------
   var targets = document.querySelectorAll("[data-stories]");
   if (!targets.length) return;
 
