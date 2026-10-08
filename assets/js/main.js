@@ -8,6 +8,7 @@
  *      data-archive         group by year and enable filters + search
  *      data-upcoming        append a "more stories on the way" card when the
  *                           grid has room (home page)
+ *    Stories dated in the future stay hidden until that date (scheduling).
  *
  * Adding a story never requires editing this file. See README.md.
  */
@@ -64,6 +65,12 @@
         "</div>" +
       "</article>"
     );
+  }
+
+  // A story with a future date stays hidden until that date arrives at
+  // midnight US Central time (UTC-5; an hour off in winter, which is fine).
+  function isPublished(s, now) {
+    return new Date(s.date + "T00:00:00-05:00").getTime() <= now;
   }
 
   function upcoming(span) {
@@ -131,8 +138,9 @@
   fetch(root + "assets/data/stories.json")
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (data) {
+      var now = Date.now();
       var stories = (data.stories || [])
-        .filter(function (s) { return !s.draft; })
+        .filter(function (s) { return !s.draft && isPublished(s, now); })
         .sort(function (a, b) { return a.date < b.date ? 1 : -1; });
       targets.forEach(function (el) {
         if (el.hasAttribute("data-archive")) renderArchive(el, stories);

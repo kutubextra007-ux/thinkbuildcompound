@@ -44,6 +44,8 @@ sitemap.xml  robots.txt  .nojekyll
    }
    ```
    `category` must be `think`, `build` or `compound`. Order doesn't matter; the site sorts by date. Add `"draft": true` to hide an entry.
+
+   **Scheduling:** give a story a future `date` and it stays off the Home and Stories pages until midnight US Central on that date, then appears on its own. The story page itself is live at its URL as soon as it's pushed (unlinked), so you can proofread it there first.
 5. **Add the URL** to `sitemap.xml`.
 6. **Commit and push.** GitHub Pages republishes in about a minute. The home page, Stories archive, filters and search pick it up automatically.
 
