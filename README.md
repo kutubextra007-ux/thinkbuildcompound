@@ -77,6 +77,10 @@ All current artwork consists of original placeholder illustrations made for this
 
 If you switch an image to `.jpg`, update its path in the HTML (and in `stories.json` for story images).
 
+## Analytics
+
+Cloudflare Web Analytics (cookie-free, no consent banner needed). The beacon snippet sits just before `</body>` on every page, including `stories/_template.html`, so new stories are tracked automatically. View traffic in the Cloudflare dashboard under Web Analytics.
+
 ## Deployment
 
 GitHub Pages serves this repository from the `main` branch root. The custom domain `thinkbuildcompound.com` is set in the repository's Pages settings, together with the `CNAME` file. HTTPS is enforced there once DNS resolves.
