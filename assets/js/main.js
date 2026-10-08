@@ -50,7 +50,7 @@
 
     var toc = document.querySelector(".toc details");
     if (toc) {
-      var wide = window.matchMedia("(min-width: 1240px)");
+      var wide = window.matchMedia("(min-width: 1360px)");
       var syncToc = function () { if (wide.matches) toc.open = true; };
       syncToc();
       if (wide.addEventListener) wide.addEventListener("change", syncToc);
